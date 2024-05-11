@@ -7,7 +7,12 @@ const itemSchema = new Schema({
     type: String,
     required: true,
     minLength: 1,
-    maxLength: 50,
+    maxLength: 100,
+  },
+  brand: {
+    type: String,
+    required: true,
+    minLength: 1,
   },
   description: {
     type: String,
@@ -19,6 +24,9 @@ const itemSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true,
+  },
+  size: {
+    type: String,
   },
   price: {
     type: Number,
