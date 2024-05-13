@@ -2,7 +2,30 @@
 <html>
   <%- include('layouts/head'); -%>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('layouts/header'); -%>
+    <%- include('layouts/sidebar'); -%>
+    <main class="main-index">
+      <section>
+        <h2><%= title %></h2>
+        <p>
+          Welcome to <em>InventoryMate</em>, a simple inventory management
+          application.
+        </p>
+      </section>
+      <section>
+        <h2>Record Counts</h2>
+        <ul>
+          <li>
+            <strong>Items:</strong>
+            <%- item_count %>
+          </li>
+          <li>
+            <strong>Categories:</strong>
+            <%- category_count %>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <%- include('layouts/footer'); -%>
   </body>
 </html>
