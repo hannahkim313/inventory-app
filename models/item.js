@@ -40,7 +40,6 @@ const itemSchema = new Schema({
   },
 });
 
-// TODO: Create 'catalog' route when implementing routes/controllers
 itemSchema.virtual('url').get(function () {
   return `/catalog/item/${this._id}`;
 });

@@ -17,7 +17,6 @@ const categorySchema = new Schema({
   },
 });
 
-// TODO: Create 'catalog' route when implementing routes/controllers
 categorySchema.virtual('url').get(function () {
   return `/catalog/category/${this._id}`;
 });
