@@ -6,16 +6,16 @@
     <%- include('layouts/sidebar'); -%>
     <main class="list-view">
       <h2><%= title %></h2>
-      <% if (item_list.length > 0) { %>
+      <% if (category_list.length > 0) { %>
       <ul>
-        <% item_list.forEach((item) => { %>
+        <% category_list.forEach((category) => { %>
         <li>
-          <a href="<%= item.url %>"><%= item.name %></a>
+          <a href="<%= category.url %>"><%= category.name %></a>
         </li>
         <% }) %>
       </ul>
       <% } else { %>
-      <p>There are no items.</p>
+      <p>There are no categories.</p>
       <% } %>
     </main>
     <%- include('layouts/footer'); -%>

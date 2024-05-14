@@ -94,28 +94,28 @@ main {
   gap: calc(var(--gap-sm) / 2);
 }
 
-/* Item list page */
+/* List pages */
 
-.main-item-list {
+.list-view {
   display: flex;
   flex-direction: column;
   gap: calc(var(--gap-sm) / 2);
 }
 
-.main-item-list ul {
+.list-view ul {
   display: flex;
   flex-direction: column;
   gap: var(--gap-sm);
 }
 
-.main-item-list li {
+.list-view li {
   list-style: inside;
   padding: var(--padding-sm);
   background-color: var(--color-neutral-light);
   border-radius: var(--border-radius-round);
 }
 
-.main-item-list a:hover {
+.list-view a:hover {
   text-decoration: underline;
 }
 
