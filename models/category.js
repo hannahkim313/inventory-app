@@ -18,7 +18,7 @@ const categorySchema = new Schema({
 });
 
 categorySchema.virtual('url').get(function () {
-  return `/catalog/category/${this._id}`;
+  return `/catalog/category/${this.name}`;
 });
 
 module.exports = mongoose.model('Category', categorySchema);

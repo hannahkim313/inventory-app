@@ -41,7 +41,7 @@ const itemSchema = new Schema({
 });
 
 itemSchema.virtual('url').get(function () {
-  return `/catalog/item/${this._id}`;
+  return `/catalog/item/${this.name}`;
 });
 
 module.exports = mongoose.model('Item', itemSchema);
