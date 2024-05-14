@@ -21,7 +21,10 @@ exports.index = asyncHandler(async (req, res, next) => {
 // Display list of all items
 exports.item_list = asyncHandler(async (req, res, next) => {
   // Fetch all Item records
-  const allItems = await Item.find({}, 'name').sort({ name: 1 }).exec();
+  const allItems = await Item.find({})
+    .sort({ name: 1 })
+    .populate('category')
+    .exec();
 
   res.render('item_list', {
     title: 'All Items',
