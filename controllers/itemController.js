@@ -23,7 +23,7 @@ exports.item_list = asyncHandler(async (req, res, next) => {
   // Fetch all Item records
   const allItems = await Item.find({}, 'name').sort({ name: 1 }).exec();
 
-  res.render('item-list', {
+  res.render('item_list', {
     title: 'All Items',
     item_list: allItems,
   });
