@@ -5,10 +5,15 @@
     <%- include('layouts/header'); -%>
     <%- include('layouts/sidebar'); -%>
     <main class="data-display">
-      <h2><%= title %></h2>
-      <% if (item_list.length > 0) { %>
+      <h2>
+        Category:
+        <%= category.name %>
+      </h2>
+      <p><%= category.description %></p>
+      <h3>Items</h3>
+      <% if (category_items.length > 0) { %>
       <ul>
-        <% item_list.forEach((item) => { %>
+        <% category_items.forEach((item) => { %>
         <li>
           <p>
             <strong>Name:</strong>
@@ -17,10 +22,6 @@
           <p>
             <strong>Brand:</strong>
             <%= item.brand %>
-          </p>
-          <p>
-            <strong>Category:</strong>
-            <%= item.category.name %>
           </p>
           <p>
             <strong>Price:</strong>
@@ -34,7 +35,7 @@
         <% }) %>
       </ul>
       <% } else { %>
-      <p>There are no items.</p>
+      <p>There are no items in this category.</p>
       <% } %>
     </main>
     <%- include('layouts/footer'); -%>

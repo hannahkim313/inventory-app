@@ -94,27 +94,27 @@ main {
   gap: calc(var(--gap-sm) / 2);
 }
 
-/* List pages */
+/* List and detail pages */
 
-.list-view {
+.data-display {
   display: flex;
   flex-direction: column;
   gap: calc(var(--gap-sm) / 2);
 }
 
-.list-view ul {
+.data-display ul {
   display: flex;
   flex-direction: column;
   gap: var(--gap-sm);
 }
 
-.list-view li {
+.data-display li {
   padding: var(--padding-sm);
   background-color: var(--color-neutral-light);
   border-radius: var(--border-radius-round);
 }
 
-.list-view a:hover {
+.data-display a:hover {
   text-decoration: underline;
 }
 
