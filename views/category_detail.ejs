@@ -10,33 +10,35 @@
         <%= category.name %>
       </h2>
       <p><%= category.description %></p>
-      <h3>Items</h3>
-      <% if (category_items.length > 0) { %>
-      <ul>
-        <% category_items.forEach((item) => { %>
-        <li>
-          <p>
-            <strong>Name:</strong>
-            <a href="<%= item.url %>"> <%= item.name %></a>
-          </p>
-          <p>
-            <strong>Brand:</strong>
-            <%= item.brand %>
-          </p>
-          <p>
-            <strong>Price:</strong>
-            $<%= item.price %>
-          </p>
-          <p>
-            <strong>Number in Stock:</strong>
-            <%= item.num_in_stock %>
-          </p>
-        </li>
-        <% }) %>
-      </ul>
-      <% } else { %>
-      <p>There are no items in this category.</p>
-      <% } %>
+      <section>
+        <h3>Items</h3>
+        <% if (category_items.length > 0) { %>
+        <ul>
+          <% category_items.forEach((item) => { %>
+          <li>
+            <p>
+              <strong>Name:</strong>
+              <a href="<%= item.url %>"> <%= item.name %></a>
+            </p>
+            <p>
+              <strong>Brand:</strong>
+              <%= item.brand %>
+            </p>
+            <p>
+              <strong>Price:</strong>
+              $<%= item.price %>
+            </p>
+            <p>
+              <strong>Number in Stock:</strong>
+              <%= item.num_in_stock %>
+            </p>
+          </li>
+          <% }) %>
+        </ul>
+        <% } else { %>
+        <p>There are no items in this category.</p>
+        <% } %>
+      </section>
     </main>
     <%- include('layouts/footer'); -%>
   </body>

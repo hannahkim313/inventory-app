@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <%- include('layouts/head'); -%>
+  <body>
+    <%- include('layouts/header'); -%>
+    <%- include('layouts/sidebar'); -%>
+    <main class="data-display">
+      <h2><%= item.name %></h2>
+      <section>
+        <h3>Details</h3>
+        <div class="item-details">
+          <p>
+            <strong>Description:</strong>
+            <%= item.description %>
+          </p>
+          <p>
+            <strong>Brand:</strong>
+            <%= item.brand %>
+          </p>
+          <p>
+            <strong>Category:</strong>
+            <a href="<%= item.category.url %>"><%= item.category.name %></a>
+          </p>
+          <p>
+            <strong>Size:</strong>
+            <%= item.size %>
+          </p>
+          <p>
+            <strong>Price:</strong>
+            $<%= item.price.toFixed(2) %>
+          </p>
+          <p>
+            <strong>Number in Stock:</strong>
+            <%= item.num_in_stock %>
+          </p>
+        </div>
+      </section>
+      <section>
+        <h3>Options</h3>
+        <div class="options">
+          <a href="<%= item.url %>/update">Update item</a>
+          <a href="<%= item.url %>/delete">Delete item</a>
+        </div>
+      </section>
+    </main>
+    <%- include('layouts/footer'); -%>
+  </body>
+</html>

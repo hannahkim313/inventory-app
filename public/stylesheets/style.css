@@ -1,6 +1,7 @@
 :root {
   --color-text: #06070e;
   --color-brand-1: #3f394c;
+  --color-brand-2: #5c5370;
   --color-neutral-light: #e7e7e7;
   --color-neutral-med: #cccccc;
   --gap-sm: 1rem;
@@ -80,18 +81,18 @@ main {
   grid-row: 2 / 3;
 }
 
+main section {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap-sm) / 2);
+}
+
 /* Index page */
 
 .main-index {
   display: flex;
   flex-direction: column;
   gap: var(--gap-sm);
-}
-
-.main-index section {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--gap-sm) / 2);
 }
 
 /* List and detail pages */
@@ -108,7 +109,8 @@ main {
   gap: var(--gap-sm);
 }
 
-.data-display li {
+.data-display li,
+.item-details {
   padding: var(--padding-sm);
   background-color: var(--color-neutral-light);
   border-radius: var(--border-radius-round);
@@ -116,6 +118,25 @@ main {
 
 .data-display a:hover {
   text-decoration: underline;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.options a {
+  width: fit-content;
+  color: white;
+  padding: calc(var(--padding-sm) / 2);
+  background-color: var(--color-brand-1);
+  border-radius: var(--border-radius-round);
+}
+
+.options a:hover {
+  text-decoration: none;
+  background-color: var(--color-brand-2);
 }
 
 /******************************************************************************/
