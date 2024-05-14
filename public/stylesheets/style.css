@@ -1,5 +1,6 @@
 :root {
   --color-text: #06070e;
+  --color-links: #4616b8;
   --color-brand-1: #3f394c;
   --color-brand-2: #5c5370;
   --color-neutral-light: #e7e7e7;
@@ -85,6 +86,10 @@ main section {
   display: flex;
   flex-direction: column;
   gap: calc(var(--gap-sm) / 2);
+}
+
+main a {
+  color: var(--color-links);
 }
 
 /* Index page */
