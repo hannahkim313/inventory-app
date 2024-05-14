@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <%- include('layouts/head'); -%>
+  <body>
+    <%- include('layouts/header'); -%>
+    <%- include('layouts/sidebar'); -%>
+    <main class="main-item-list">
+      <h2><%= title %></h2>
+      <% if (item_list.length > 0) { %>
+      <ul>
+        <% item_list.forEach((item) => { %>
+        <li>
+          <a href="<%= item.url %>"><%= item.name %></a>
+        </li>
+        <% }) %>
+      </ul>
+      <% } else { %>
+      <p>There are no items.</p>
+      <% } %>
+    </main>
+    <%- include('layouts/footer'); -%>
+  </body>
+</html>
