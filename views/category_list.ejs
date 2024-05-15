@@ -5,18 +5,20 @@
     <%- include('layouts/header'); -%>
     <%- include('layouts/sidebar'); -%>
     <main class="data-display">
-      <h2><%= title %></h2>
-      <% if (category_list.length > 0) { %>
-      <ul>
-        <% category_list.forEach((category) => { %>
-        <li>
-          <a href="<%= category.url %>"><%= category.name %></a>
-        </li>
-        <% }) %>
-      </ul>
-      <% } else { %>
-      <p>There are no categories.</p>
-      <% } %>
+      <section>
+        <h2><%= title %></h2>
+        <% if (category_list.length > 0) { %>
+        <ul>
+          <% category_list.forEach((category) => { %>
+          <li>
+            <a href="<%= category.url %>"><%= category.name %></a>
+          </li>
+          <% }) %>
+        </ul>
+        <% } else { %>
+        <p>There are no categories.</p>
+        <% } %>
+      </section>
     </main>
     <%- include('layouts/footer'); -%>
   </body>

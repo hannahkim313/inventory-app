@@ -5,11 +5,13 @@
     <%- include('layouts/header'); -%>
     <%- include('layouts/sidebar'); -%>
     <main class="data-display">
-      <h2>
-        Category:
-        <%= category.name %>
-      </h2>
-      <p><%= category.description %></p>
+      <section>
+        <h2>
+          Category:
+          <%= category.name %>
+        </h2>
+        <p><%= category.description %></p>
+      </section>
       <section>
         <h3>Items</h3>
         <% if (category_items.length > 0) { %>

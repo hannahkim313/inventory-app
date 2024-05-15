@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <%- include('layouts/head'); -%>
+  <body>
+    <%- include('layouts/header'); -%>
+    <%- include('layouts/sidebar'); -%>
+    <main>
+      <section>
+        <h2><%= title %></h2>
+        <form action="" method="post">
+          <div class="form-control">
+            <label for="name">Category:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value="<%= category === undefined ? '' : category.name %>"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" rows="5" required>
+<%= category === undefined ? '' : category.description %></textarea
+            >
+          </div>
+          <button class="submit-btn" type="submit">Submit</button>
+        </form>
+        <% if (errors.length > 0) { %>
+        <section class="errors">
+          <h2>Errors</h2>
+          <ul>
+            <% errors.forEach((error) => { %>
+            <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+        </section>
+        <% } %>
+      </section>
+    </main>
+    <%- include('layouts/footer'); -%>
+  </body>
+</html>

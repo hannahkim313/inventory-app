@@ -7,6 +7,7 @@
   --color-neutral-med: #cccccc;
   --gap-sm: 1rem;
   --padding-sm: 1rem;
+  --padding-btn: 0.5rem 0.2rem;
   --border-radius-round: 0.5rem;
 }
 
@@ -22,6 +23,10 @@ a {
 hr {
   margin: 0.5rem 0;
   border: 1px solid var(--color-neutral-med);
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 body {
@@ -80,6 +85,9 @@ main {
   overflow-y: auto;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
 }
 
 main section {
@@ -92,21 +100,7 @@ main a {
   color: var(--color-links);
 }
 
-/* Index page */
-
-.main-index {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-sm);
-}
-
 /* List and detail pages */
-
-.data-display {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--gap-sm) / 2);
-}
 
 .data-display ul {
   display: flex;
@@ -144,13 +138,58 @@ main a {
   background-color: var(--color-brand-2);
 }
 
+/* Form pages */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+input,
+textarea {
+  max-width: 850px;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap-sm) / 2);
+}
+
+.submit-btn {
+  color: white;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--color-brand-1);
+  border-radius: var(--border-radius-round);
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-brand-2);
+}
+
+.errors ul {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap-sm) / 2);
+}
+
+.errors li {
+  list-style: inside;
+}
+
 /******************************************************************************/
 /* Footer
 /******************************************************************************/
 
 footer {
   text-align: center;
-  padding: var(--padding-sm);
+  padding: var(--padding-btn);
   background-color: var(--color-brand-1);
   grid-column: 1 / 3;
   grid-row: 3 / 4;
