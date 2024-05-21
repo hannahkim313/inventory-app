@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <%- include('layouts/head'); -%>
+  <body>
+    <%- include('layouts/header'); -%>
+    <%- include('layouts/sidebar'); -%>
+    <main class="data-display">
+      <section>
+        <h2><%= item.name %></h2>
+        <section>
+          <h3>Details</h3>
+          <div class="item-details">
+            <p>
+              <strong>Description:</strong>
+              <%= item.description %>
+            </p>
+            <p>
+              <strong>Brand:</strong>
+              <%= item.brand %>
+            </p>
+            <p>
+              <strong>Category:</strong>
+              <a href="<%= item.category.url %>"><%= item.category.name %></a>
+            </p>
+            <p>
+              <strong>Size:</strong>
+              <%= item.size %>
+            </p>
+            <p>
+              <strong>Price:</strong>
+              $<%= item.price.toFixed(2) %>
+            </p>
+            <p>
+              <strong>Number in Stock:</strong>
+              <%= item.num_in_stock %>
+            </p>
+          </div>
+        </section>
+      </section>
+      <p>Are you sure you want to delete this item?</p>
+      <form action="" method="post">
+        <input
+          class="hidden"
+          type="hidden"
+          id="item_name"
+          name="item_name"
+          value="<%= item.name %>"
+        />
+        <button type="submit" class="submit-btn">Delete</button>
+      </form>
+    </main>
+    <%- include('layouts/footer'); -%>
+  </body>
+</html>

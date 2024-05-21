@@ -105,6 +105,10 @@ exports.category_delete_get = asyncHandler(async (req, res, next) => {
   const category = await Category.findOne({ name: req.params.name }).exec();
   const allItemsOfCategory = await Item.find({ category });
 
+  if (category === null) {
+    res.redirect('/category/categories');
+  }
+
   res.render('category_delete', {
     title: 'Delete Category',
     category,

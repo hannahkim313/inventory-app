@@ -160,12 +160,23 @@ exports.item_create_post = [
 
 // Display item delete form on GET
 exports.item_delete_get = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: Item delete GET');
+  const item = await Item.findOne({ name: req.params.name });
+
+  if (item === null) {
+    res.redirect('/catalog/items');
+  }
+
+  res.render('item_delete', {
+    title: 'Delete Item',
+    item,
+  });
 });
 
 // Handle item delete on POST
 exports.item_delete_post = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: Item delete POST');
+  await Item.findOneAndDelete({ name: req.body.item_name });
+
+  res.redirect('/catalog/items');
 });
 
 // Display item update form on GET
