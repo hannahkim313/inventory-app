@@ -62,7 +62,7 @@
               type="text"
               id="size"
               name="size"
-              value="<%= item === undefined ? '' : item.size %>"
+              value="<%= item === undefined || item.size === 'N/A' ? '' : item.size %>"
             />
           </div>
           <div class="form-control">
@@ -71,7 +71,7 @@
               type="text"
               id="price"
               name="price"
-              value="<%= item === undefined ? '' : item.price %>"
+              value="<%= item === undefined ? '' : item.price.toFixed(2) %>"
             />
           </div>
           <div class="form-control">

@@ -25,7 +25,7 @@ router.post('/item/:name/delete', itemController.item_delete_post);
 router.get('/item/:name/update', itemController.item_update_get);
 
 // POST request to update an item
-router.post('/item/:name:/update', itemController.item_update_post);
+router.post('/item/:name/update', itemController.item_update_post);
 
 // GET request to display a specific item's detail page
 router.get('/item/:name', itemController.item_detail);
