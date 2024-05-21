@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <%- include('layouts/head'); -%>
+  <body>
+    <%- include('layouts/header'); -%>
+    <%- include('layouts/sidebar'); -%>
+    <main>
+      <section>
+        <h2><%= title %></h2>
+        <% if (categories.length === 0) { %>
+        <p>At least 1 category must exist before creating a new item.</p>
+        <% } else { %>
+        <form action="" method="post">
+          <div class="form-control">
+            <label for="name">Item:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value="<%= item === undefined ? '' : item.name %>"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="brand">Brand:</label>
+            <input
+              type="text"
+              id="brand"
+              name="brand"
+              value="<%= item === undefined ? '' : item.brand %>"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" rows="5" required>
+<%= item === undefined ? '' : item.description %></textarea
+            >
+          </div>
+          <div class="form-control">
+            <label for="category">Category:</label>
+            <select name="category" id="category" required>
+              <option value="">Please select a category</option>
+              <% categories.forEach((category) => { %>
+              <% if (item !== undefined) { %>
+              <% if (category._id.toString() === item.category._id.toString()) { %>
+              <option value="<%= category._id %>" selected>
+                <%= category.name %>
+              </option>
+              <% } else { %>
+              <option value="<%= category._id %>"><%= category.name %></option>
+              <% } %>
+              <% } else { %>
+              <option value="<%= category._id %>"><%= category.name %></option>
+              <% } %>
+              <% }) %>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="size">Size:</label>
+            <input
+              type="text"
+              id="size"
+              name="size"
+              value="<%= item === undefined ? '' : item.size %>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="price">Price:</label>
+            <input
+              type="text"
+              id="price"
+              name="price"
+              value="<%= item === undefined ? '' : item.price %>"
+            />
+          </div>
+          <div class="form-control">
+            <label for="num_in_stock">Number in stock:</label>
+            <input
+              type="text"
+              id="num_in_stock"
+              name="num_in_stock"
+              value="<%= item === undefined ? '' : item.num_in_stock %>"
+            />
+          </div>
+          <button class="submit-btn" type="submit">Submit</button>
+        </form>
+        <% if (errors.length > 0) { %>
+        <section class="errors">
+          <h2>Errors</h2>
+          <ul>
+            <% errors.forEach((error) => { %>
+            <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+        </section>
+        <% } %>
+        <% } %>
+      </section>
+    </main>
+    <%- include('layouts/footer'); -%>
+  </body>
+</html>
