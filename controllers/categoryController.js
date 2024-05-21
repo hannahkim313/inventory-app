@@ -102,12 +102,34 @@ exports.category_create_post = [
 
 // Display category delete form on GET
 exports.category_delete_get = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: Category delete GET');
+  const category = await Category.findOne({ name: req.params.name }).exec();
+  const allItemsOfCategory = await Item.find({ category });
+
+  res.render('category_delete', {
+    title: 'Delete Category',
+    category,
+    category_items: allItemsOfCategory,
+  });
 });
 
 // Handle category delete on POST
 exports.category_delete_post = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: Category delete POST');
+  const category = await Category.findOne({ name: req.params.name }).exec();
+  const allItemsOfCategory = await Item.find({ category });
+
+  if (allItemsOfCategory.length > 0) {
+    res.render('category_delete', {
+      title: 'Delete Category',
+      category,
+      category_items: allItemsOfCategory,
+    });
+
+    return;
+  } else {
+    await Category.findOneAndDelete({ name: req.body.category_name });
+
+    res.redirect('/catalog/categories');
+  }
 });
 
 // Display category update form on GET

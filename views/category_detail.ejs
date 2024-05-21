@@ -41,6 +41,13 @@
         <p>There are no items in this category.</p>
         <% } %>
       </section>
+      <section>
+        <h3>Options</h3>
+        <div class="options">
+          <a href="<%= category.url %>/update">Update category</a>
+          <a href="<%= category.url %>/delete">Delete category</a>
+        </div>
+      </section>
     </main>
     <%- include('layouts/footer'); -%>
   </body>
