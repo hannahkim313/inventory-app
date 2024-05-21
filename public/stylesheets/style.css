@@ -8,6 +8,7 @@
   --gap-sm: 1rem;
   --padding-sm: 1rem;
   --padding-btn: 0.5rem 0.2rem;
+  --padding-input: 0.2rem 0.5rem;
   --border-radius-round: 0.5rem;
 }
 
@@ -155,6 +156,7 @@ input,
 textarea,
 select {
   max-width: 850px;
+  padding: var(--padding-input);
 }
 
 textarea {
