@@ -138,10 +138,69 @@ exports.category_delete_post = asyncHandler(async (req, res, next) => {
 
 // Display category update form on GET
 exports.category_update_get = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: Category update GET');
+  const category = await Category.findOne({ name: req.params.name });
+
+  if (category === null) {
+    const err = new Error('Category not found');
+    err.status = 404;
+
+    return next(err);
+  }
+
+  res.render('category_form', {
+    title: 'Update Category',
+    category,
+    errors: [],
+  });
 });
 
 // Handle category update on POST
-exports.category_update_post = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: Category update POST');
-});
+exports.category_update_post = [
+  // Validate and sanitize fields
+  body('name')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Name field is required.')
+    .isLength({ max: 50 })
+    .withMessage('Name must contain less than 50 characters.')
+    .escape(),
+  body('description')
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage('Description field is required.')
+    .isLength({ max: 300 })
+    .withMessage('Description must contain less than 300 characters.')
+    .escape(),
+
+  // Process request after validation and sanitization
+  asyncHandler(async (req, res, next) => {
+    // Extract the validation errors from request
+    const errors = validationResult(req);
+
+    const category = await Category.findOne({ name: req.params.name });
+
+    // Create a category object with clean values and old id
+    const newCategory = new Category({
+      name: req.body.name,
+      description: req.body.description,
+      _id: category._id,
+    });
+
+    if (!errors.isEmpty()) {
+      res.render('category_form', {
+        title: 'Update Category',
+        newCategory,
+        errors: errors.array(),
+      });
+
+      return;
+    } else {
+      const updatedCategory = await Category.findOneAndUpdate(
+        { name: req.params.name },
+        newCategory,
+        { returnDocument: 'after' }
+      );
+      res.redirect(updatedCategory.url);
+    }
+  }),
+];

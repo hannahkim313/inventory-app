@@ -51,7 +51,7 @@ router.post('/category/:name/delete', categoryController.category_delete_post);
 router.get('/category/:name/update', categoryController.category_update_get);
 
 // POST request to update a category
-router.post('/category/:name:/update', categoryController.category_update_post);
+router.post('/category/:name/update', categoryController.category_update_post);
 
 // GET request to display a specific category's detail page
 router.get('/category/:name', categoryController.category_detail);
