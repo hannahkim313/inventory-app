@@ -1,5 +1,7 @@
 # Inventory Application
 
+https://scented-rowan-star.glitch.me/catalog
+
 ## Project Summary
 
 This project, created by The Odin Project, is a simple inventory management application for an imaginary art store. _InventoryMate_ contains categories and items, which are data that the user can create, read, update, or delete (CRUD). Following a similar structure to that of the [MDN's Express Local Library tutorial](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website), this project demonstrates a solid introduction to creating and running an application using Node and Express as well as the following topics:
